@@ -202,6 +202,8 @@ theorem funext {f₁ f₂ : ∀ (x : α), β x} (h : ∀ x, f₁ x = f₂ x) : f
 \end{leancode}
 \end{document}
 </code></pre>
+<p>If your version of <code>minted</code> is v2.7 or newer, but before v3.0,
+you will additionally need to follow the workaround described in https://github.com/gpoore/minted/issues/360.</p>
 <p>You can then compile <code>test.tex</code> by executing the following command:</p>
 <pre><code class="language-bash">xelatex --shell-escape test.tex
 </code></pre>

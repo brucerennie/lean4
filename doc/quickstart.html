@@ -140,48 +140,25 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="quickstart"><a class="header" href="#quickstart">Quickstart</a></h1>
-<p>These instructions will walk you through setting up Lean using the &quot;basic&quot; setup and VS Code as the editor.
-See <a href="./setup.html">Setup</a> for other ways, supported platforms, and more details on setting up Lean.</p>
-<p>See quick <a href="https://www.youtube.com/watch?v=yZo6k48L0VY">walkthrough demo video</a>.</p>
+<p>These instructions will walk you through setting up Lean 4 together with VS Code as an editor for Lean 4.
+See <a href="./setup.html">Setup</a> for supported platforms and other ways to set up Lean 4.</p>
 <ol>
 <li>
 <p>Install <a href="https://code.visualstudio.com/">VS Code</a>.</p>
 </li>
 <li>
-<p>Launch VS Code and install the <code>lean4</code> extension.</p>
+<p>Launch VS Code and install the <code>lean4</code> extension by clicking on the &quot;Extensions&quot; sidebar entry and searching for &quot;lean4&quot;.</p>
 <p><img src="images/code-ext.png" alt="installing the vscode-lean4 extension" /></p>
 </li>
 <li>
-<p>Create a new file using &quot;File &gt; New Text File&quot; (<code>Ctrl+N</code>). Click the <code>Select a language</code> prompt, type in <code>lean4</code>, and hit ENTER.  You should see the following popup:
-<img src="images/install_elan.png" alt="elan" /></p>
-<p>Click the &quot;Install Lean using Elan&quot; button. You should see some progress output like this:</p>
-<pre><code>info: syncing channel updates for 'stable'
-info: latest update on stable, lean version v4.0.0
-info: downloading component 'lean'
-</code></pre>
-<p>If there is no popup, you probably have Elan installed already.
-You may want to make sure that your default toolchain is Lean 4 in this case by running <code>elan default leanprover/lean4:stable</code> and reopen the file, as the next step will fail otherwise.</p>
+<p>Open the Lean 4 setup guide by creating a new text file using &quot;File &gt; New Text File&quot; (<code>Ctrl+N</code>), clicking on the ∀-symbol in the top right and selecting &quot;Documentation… &gt; Setup: Show Setup Guide&quot;.</p>
+<p><img src="images/show-setup-guide.png" alt="show setup guide" /></p>
 </li>
 <li>
-<p>While it is installing, you can paste the following Lean program into the new file:</p>
-<pre><code class="language-lean">#eval Lean.versionString
-</code></pre>
-<p>When the installation has finished, the Lean Language Server should start automatically and you should get syntax-highlighting and a &quot;Lean Infoview&quot; popping up on the right.  You will see the output of the <code>#eval</code> statement when
-you place your cursor at the end of the statement.</p>
-<p><img src="images/code-success.png" alt="successful setup" /></p>
+<p>Follow the Lean 4 setup guide. It will walk you through learning resources for Lean 4, teach you how to set up Lean's dependencies on your platform, install Lean 4 for you at the click of a button and help you set up your first project.</p>
+<p><img src="images/setup_guide.png" alt="setup guide" /></p>
 </li>
 </ol>
-<p>You are set up!</p>
-<h2 id="create-a-lean-project"><a class="header" href="#create-a-lean-project">Create a Lean Project</a></h2>
-<p><em>If your goal is to contribute to <a href="https://github.com/leanprover-community/mathlib4">mathlib4</a> or use it as a dependency, please see its readme for specific instructions on how to do that.</em></p>
-<p>You can now create a Lean project in a new folder. Run <code>lake init foo</code> from &quot;View &gt; Terminal&quot; to create a package, followed by <code>lake build</code> to get an executable version of your Lean program.
-On Linux/macOS, you first have to follow the instructions printed by the Lean installation or log out and in again for the Lean executables to be available in you terminal.</p>
-<p>Note: Packages <strong>have</strong> to be opened using &quot;File &gt; Open Folder...&quot; for imports to work.
-Saved changes are visible in other files after running &quot;Lean 4: Refresh File Dependencies&quot; (<code>Ctrl+Shift+X</code>).</p>
-<h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
-<p><strong>The InfoView says &quot;Waiting for Lean server to start...&quot; forever.</strong></p>
-<p>Check that the VS Code Terminal is not showing some installation errors from <code>elan</code>.
-If that doesn't work, try also running the VS Code command <code>Developer: Reload Window</code>.</p>
 
                     </main>
 

@@ -207,6 +207,8 @@ other words, before running <code>make update-stage0</code>, please commit your
 work. Then, commit the updated <code>stage0</code> compiler code with the commit message:</p>
 <pre><code>chore: update stage0
 </code></pre>
+<p>The lean4 github repository has automation to update stage0 on <code>master</code> once
+<code>src/stdlib_flags.h</code> and <code>stage0/src/stdlib_flags.h</code> are out of sync.</p>
 <h2 id="further-bootstrapping-complications"><a class="header" href="#further-bootstrapping-complications">Further Bootstrapping Complications</a></h2>
 <p>As written above, changes in meta code in the current stage usually will only
 affect later stages. This is an issue in two specific cases.</p>
