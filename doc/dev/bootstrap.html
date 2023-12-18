@@ -199,16 +199,28 @@ a sanity check.</p>
 <p>You now have a Lean binary and library that include your changes, though their
 own compilation was not influenced by them, that you can use to test your
 changes on test programs whose compilation <em>will</em> be influenced by the changes.</p>
+<h2 id="updating-stage0"><a class="header" href="#updating-stage0">Updating stage0</a></h2>
 <p>Finally, when we want to use new language features in the library, we need to
-update the stage 0 compiler, which can be done via <code>make -C stageN update-stage0</code>.
-<code>make update-stage0</code> without <code>-C</code> defaults to stage1.</p>
-<p>Updates to <code>stage0</code> should be their own commits in the Git history. In
-other words, before running <code>make update-stage0</code>, please commit your
-work. Then, commit the updated <code>stage0</code> compiler code with the commit message:</p>
+update the archived C source code of the stage 0 compiler in <code>stage0/src</code>.</p>
+<p>The github repository will automatically update stage0 on <code>master</code> once
+<code>src/stdlib_flags.h</code> and <code>stage0/src/stdlib_flags.h</code> are out of sync.</p>
+<p>If you have write access to the lean4 repository, you can also also manually
+trigger that process, for example to be able to use new features in the compiler itself.
+You can do that on <a href="https://github.com/nomeata/lean4/actions/workflows/update-stage0.yml">https://github.com/nomeata/lean4/actions/workflows/update-stage0.yml</a>
+or using Github CLI with</p>
+<pre><code>gh workflow run update-stage0.yml
+</code></pre>
+<p>Leaving stage0 updates to the CI automation is preferrable, but should you need
+to do it locally, you can use <code>make update-stage0</code> in <code>build/release</code>, to
+update <code>stage0</code> from <code>stage1</code>, <code>make -C stageN update-stage0</code> to update from
+another stage, or <code>nix run .#update-stage0-commit</code> to update using nix.</p>
+<p>Updates to <code>stage0</code> should be their own commits in the Git history. So should
+you have to include the stage0 update in your PR (rather than using above
+automation after merging changes), commit your work before running <code>make update-stage0</code>, commit the updated <code>stage0</code> compiler code with the commit
+message:</p>
 <pre><code>chore: update stage0
 </code></pre>
-<p>The lean4 github repository has automation to update stage0 on <code>master</code> once
-<code>src/stdlib_flags.h</code> and <code>stage0/src/stdlib_flags.h</code> are out of sync.</p>
+<p>and coordinate with the admins to not squash your PR.</p>
 <h2 id="further-bootstrapping-complications"><a class="header" href="#further-bootstrapping-complications">Further Bootstrapping Complications</a></h2>
 <p>As written above, changes in meta code in the current stage usually will only
 affect later stages. This is an issue in two specific cases.</p>
